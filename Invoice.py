@@ -54,3 +54,5 @@ class Invoice:
         self.items = temp
         return self.items
 
+    def remove_last_item_added(self):
+        self.items.popitem()
