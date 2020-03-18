@@ -8,7 +8,6 @@ class Invoice:
         self.items['unit_price'] = price
         self.items['discount'] = discount
         return self.items
-
     def totalImpurePrice(self, products):
         total_impure_price = 0
         for k, v in products.items():
@@ -43,3 +42,15 @@ class Invoice:
                 print("Not a number! Try again.")
             else:
                 return userInput
+    def remove_product(self, index):
+        temp = {}
+        cur = len(self.items)
+        for i in range(cur, 0, -1):
+            if i == index:
+                self.items.popitem()
+            else:
+                new_item = self.items.popitem()
+                temp.__setitem__(i, new_item)
+        self.items = temp
+        return self.items
+

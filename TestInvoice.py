@@ -25,3 +25,21 @@ def test_CanCalucateTotalDiscount(invoice, products):
 def test_CanCalucateTotalPurePrice(invoice, products):
     invoice.totalPurePrice(products)
     assert invoice.totalPurePrice(products) == 69.38
+
+def test_addProduct(invoice):
+    invoice.addProduct(10,100,5)
+    assert invoice.addProduct(10,100,5) == invoice.items
+def test_remove_product(invoice):
+    invoice.addProduct(10, 100, 5)
+    invoice.addProduct(20, 100, 5)
+    invoice.addProduct(30, 100, 5)
+    assert len(invoice.items) == 3
+    invoice.remove_product(1)
+    assert len(invoice.items) == 2
+    invoice.remove_product(1)
+    assert len(invoice.items) == 1
+
+
+
+
+
